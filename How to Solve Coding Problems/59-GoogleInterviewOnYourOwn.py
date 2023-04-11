@@ -12,5 +12,5 @@ def has_pair_with_sum(arr, target_sum):
     return False
 
 
-print(has_pair_with_sum(arr=[4, 2, 5], target_sum=7))
+print(has_pair_with_sum(arr=[4, 2, 5]*10_000_000, target_sum=7))
 
