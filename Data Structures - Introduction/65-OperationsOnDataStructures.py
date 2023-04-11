@@ -18,7 +18,7 @@ Another useful one is searching. We want to find out the location of the data it
 
 And we also have things like sorting.
 
-And obviously the main one and probably yhe most important is access. How do we access this data that we have on our
+And obviously the main one and probably the most important is access. How do we access this data that we have on our
 computer? Now, each data structure that we're going to go through in this course, we'll have different pros and cons for
 each one of these.
 
