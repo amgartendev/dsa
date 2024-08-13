@@ -2,7 +2,7 @@
 Looking at Hash Functions, we can start to think about what actions they perform and how fast it can be done.
 When it comes to
 
-- Insert - inserting something in our memory space it's going to be O(1). We hash the key such as 'grapes'
+Insert - inserting something in our memory space it's going to be O(1). We hash the key such as 'grapes'
 through the Hash Function and places it automatically into the address space that it comes up with.
 
 Lookup - is the exact same. We accessed the property, that property is going to get hashed and direct us exactly

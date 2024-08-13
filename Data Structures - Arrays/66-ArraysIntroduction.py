@@ -9,7 +9,7 @@ So if all you need is to store some data and iterate over it, that is go one by 
 choice. Especially if you know the indices of the items you're storing.
 """
 
-strings = ['a', 'b', 'c', 'd']  # 4 * 4 = 16 bytes of storage
+strings = ['a', 'b', 'c', 'd']  # 4 * 4 = 16 bytes of storage in a 32 bits system
 numbers = [1, 2, 3, 4, 5]
 
 # append - O(1)

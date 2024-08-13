@@ -26,7 +26,7 @@ idea what the input was, and it's practically impossible for me to have any clue
 you change one thing, it's going to completely change the output. That is called idempotent. It's a fancy way to say
 that a function given an input will always output the same output. Now, the one benefit and why we would want to use
 this in a data structure is that we get really fast data access, because all we have to do to find grapes, or
-basket.grapes is to apss into something like an MD5 Hash.
+basket.grapes is to passs grapes into something like an MD5 Hash.
 
 basket.grapes -> 048db1d6caf8e4ffef0ab75c4fde5701
 
@@ -35,7 +35,7 @@ It doesn't look like an address, does it?
 Technically a Hash Function that we use for Hash Tables is going to take grapes, generate some sort of gibberish (hash
 code), and then convert it to an index space or an address space it has based on this number.
 
-Unlike arrays where we just had ordered indexed with Hash Tables, all we need to do is give it a key, and we know
+Unlike arrays where we just had ordered indexes, with Hash Tables, all we need to do is give it a key, and we know
 exactly where that item is in our memory.
 
 But you might be wondering

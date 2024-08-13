@@ -1,3 +1,10 @@
+"""
+It's time to create our first Linked List data structure.
+
+Let's say we want to create a Linked List that has:
+10-->5-->16
+"""
+
 my_linked_list = {
     "head": {
         "value": 10,
@@ -36,48 +43,21 @@ class LinkedList:
         return self
 
     def insert(self, index, value):
-        if index == 0:
-            self.prepend(value)
-            return self
+        if index > self.length:
+            return False
 
-        if index >= self.length:
-            self.append(value)
-            return self
-
-        new_node = {"value": value, "next": None}
-        leader_node = self.traverse_to_index(index-1)
-        holding_pointer = leader_node["next"]
-        leader_node["next"] = new_node
-        new_node["next"] = holding_pointer
-        self.length += 1
-        return self
-    
-    def remove(self, index):
-        leader_node = self.traverse_to_index(index-1)
-        target = leader_node["next"]
-        if index == 0:
-            self.head = target["next"]
-            self.length -= 1
-            return self
-        
-        leader_node["next"] = target["next"]
-        self.length -= 1
-        return self
-
-    def traverse_to_index(self, index):
-        counter = 0
         current_node = self.head
-        while counter != index:
+        count = 0
+        while current_node != None:
             current_node = current_node["next"]
-            counter += 1
-        return current_node
+            count += 1
+            if count == index:
+                print(current_node)
 
 
 my_linked_list = LinkedList(10)
 print(my_linked_list)
-my_linked_list.append(5)
-my_linked_list.append(16)
-my_linked_list.prepend(1)
+print(my_linked_list.append(5))
+print(my_linked_list.append(16))
+print(my_linked_list.prepend(1))
 my_linked_list.insert(2, 99)
-print(my_linked_list)
-print(my_linked_list.remove(2))

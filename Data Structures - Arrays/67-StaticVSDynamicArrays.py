@@ -36,7 +36,7 @@ like JavaScript, where you have lists and ArrayList in Java, they work like Dyna
 memory according to the increase in size of the array.
 
 So right off the bat, you're thinking Dynamic Arrays are way better and easier, because I don't have to think about
-memory because of automatic resizing. And that ghets into a discussion of managing memory which low level languages like
+memory because of automatic resizing. And that gets into a discussion of managing memory which low level languages like
 C++ allow, while higher level languages like JavaScript or Python allow us to not think about memory and let the machine
 take care of it for you. There's times when maybe you do want to manage your memory and times when you don't need to
 based on your needs. Obviously, having more control over memory allows you to really tweak things and make things

@@ -36,8 +36,7 @@ class HashTable:
 
 
 my_hash_table = HashTable(50)
-my_hash_table.set('grapes', 10000)
 my_hash_table.set('apples', 54)
-my_hash_table.set('apples', 30)
 my_hash_table.set('oranges', 2)
+my_hash_table.set('grapes', 10000)
 print(my_hash_table.keys())

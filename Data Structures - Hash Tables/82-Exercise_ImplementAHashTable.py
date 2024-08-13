@@ -21,26 +21,28 @@ i.e: 10000.
 
 class HashTable:
     def __init__(self, size):
-        self.__data = []
+        self.data = [None] * size
 
-    def data(self):
-        return self.__data
+    def __repr__(self):
+        return str(self.data)
 
     def set(self, key, value):
-        my_dict = {key: value}
-        self.__data.append(my_dict)
+        self.data[self._hash(key)] = [key, value]
 
     def get(self, key):
-        return self.__data[0][key]
+        key_index = self._hash(key)
+        return self.data[key_index][1]
 
     def _hash(self, key):
-        my_hash = 0
+        hash = 0
         for i in range(len(key)):
-            my_hash = (my_hash + ord(key[i]) * i) % len(self.__data)
-        return my_hash
+            hash = (hash + ord(key[i]) * i) % len(self.data)
+        return hash
 
 
-my_hash_table = HashTable(50)
+my_hash_table = HashTable()
 my_hash_table.set('grapes', 10000)
+my_hash_table.set('apples', 54)
+print(my_hash_table)
 print(my_hash_table.get('grapes'))
-print(my_hash_table.data())
+print(my_hash_table.get('apples'))
