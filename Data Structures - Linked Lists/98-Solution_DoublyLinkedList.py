@@ -1,46 +1,33 @@
 """
-It's time to create our first Linked List data structure.
-
-Let's say we want to create a Linked List that has:
-10-->5-->16
+Try implementing your own Doubly Linked List before reviewing the solution.
 """
 
-my_linked_list = {
-    "head": {
-        "value": 10,
-        "next": {
-            "value": 5,
-            "next": {
-                "value": 16,
-                "next": None
-            }
-        }
-    }
-}
 
-class LinkedList:
+class DoublyLinkedList:
     def __init__(self, value):
-        self.head = {"value": value, "next": None}
+        self.head = {"value": value, "previous": None, "next": None}
         self.tail = self.head
         self.length = 1
-
+    
     def __repr__(self):
         return f"{self.__class__.__name__}(\n\thead: {self.head}\n\ttail: {self.tail}\n\tlength: {self.length}\n)"
 
     def prepend(self, value):
-        new_node = {"value": value, "next": None}
+        new_node = {"value": value, "previous": None, "next": None}
         new_node["next"] = self.head
+        self.head["previous"] = new_node
         self.head = new_node
         self.length += 1
         return self
 
     def append(self, value):
-        new_node = {"value": value, "next": None}
+        new_node = {"value": value, "previous": None, "next": None}
+        new_node["previous"] = self.tail
         self.tail["next"] = new_node
         self.tail = new_node
         self.length += 1
         return self
-
+    
     def insert(self, index, value):
         if index == 0:
             self.prepend(value)
@@ -51,16 +38,22 @@ class LinkedList:
             return self
 
         lead_node = self.traverse_to_index(index-1)
-        new_node = {"value": value, "next": None}
+        new_node = {"value": value, "previous": None, "next": None}
+        new_node["previous"] = lead_node
         new_node["next"] = lead_node["next"]
+        lead_node["next"]["previous"] = new_node
         lead_node["next"] = new_node
         self.length += 1 
         return self
-
+    
     def remove(self, index):
-        lead_node = self.traverse_to_index(index-1)
-        target = lead_node["next"]
-        lead_node["next"] = target["next"]
+        lead_node = self.traverse_to_index(index - 1)
+        target_node = lead_node["next"]
+        next_node = target_node["next"]
+
+        lead_node["next"] = next_node
+        if next_node is not None:
+            next_node["previous"] = lead_node
         self.length -= 1
         return self
 
@@ -73,10 +66,9 @@ class LinkedList:
         return current_node
 
 
-linked_list = LinkedList(10)
-print(linked_list)
-print(linked_list.prepend(1))
+linked_list = DoublyLinkedList(10)
 print(linked_list.append(5))
 print(linked_list.append(16))
-print(linked_list.insert(3, 99))
-print(linked_list.remove(3))
+print(linked_list.prepend(1))
+print(linked_list.insert(2, 99))
+print(linked_list.remove(2))
